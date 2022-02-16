@@ -18,12 +18,7 @@ class UpdateLastActivity:
             return response
 
         if request.user.is_authenticated:
-            try:
-                user = UserDetail.objects.get(user=request.user)
-            except UserDetail.DoesNotExist:
-                userdetails_create(User, request.user, True)
-                user = UserDetail.objects.get(user=request.user)
-            user.last_request = timezone.now()
-            user.save()
+            user, created = UserDetail.objects \
+                .update_or_create(user=request.user, defaults={"last_request": timezone.now()})
 
         return response
