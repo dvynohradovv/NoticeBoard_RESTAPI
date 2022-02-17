@@ -3,7 +3,6 @@
 
 # envs
 env/
-*.env
 
 # Django
 *.log
