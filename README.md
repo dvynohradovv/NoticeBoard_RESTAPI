@@ -1,4 +1,4 @@
-# NoticeBoard_RESTAPI
+# notice-board-drf
 
 # Basic models:
 ## ● User
